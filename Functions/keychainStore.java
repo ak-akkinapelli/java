@@ -25,7 +25,7 @@ public class keychainStore {
     System.out.println("You have "+x+" keychains How many to add?");
     
     int add = kb.nextInt();
-    kb.close();
+    //kb.close();
     return(x+add);
   }
   public static int remove_keychains(int x)
@@ -35,12 +35,15 @@ public class keychainStore {
     int rem = kb.nextInt();
 
     //kb.close();
-    menu();
     if(rem<=x)
+    {
     return(x-rem);
+    }
     else
+    {
     System.out.println("You can't remove more than you have, choose again");
     return 5;
+    }
   }
   public static void view_order(int x, int y)
   {
@@ -66,18 +69,22 @@ public static void Switch(int choice, int count)
               count = current;
               choice = menu();
               Switch(count, choice);
+              break;
               case 2:
              current= remove_keychains(count);
              System.out.println("You now have "+current+" keychains");
               count = current;
               choice = menu();
               Switch(count, choice);
+              break;
               case 3:
               view_order(count, price);
               choice = menu(); 
               Switch(count, choice);
+              break;
               case 4:
               checkout(count, price);
+              break;
               default:
               System.out.println("Wrong choice");
               choice = menu();
